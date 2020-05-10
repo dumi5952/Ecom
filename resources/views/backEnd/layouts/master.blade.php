@@ -5,12 +5,13 @@
     <title>@yield('title','Master Page')</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{asset('css/adminlte.css')}}">
+    <link rel="stylesheet" href="{{asset('css/adminlte.min.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('css/bootstrap-responsive.min.css')}}" />
     <link rel="stylesheet" href="{{asset('css/colorpicker.css')}}" />
     <link rel="stylesheet" href="{{asset('css/uniform.css') }}" />
     <link rel="stylesheet" href="{{asset('css/select2.css') }}" />
-    <link rel="stylesheet" href="{{asset('css/fullcalendar.css')}}" />
     <link rel="stylesheet" href="{{asset('css/matrix-style.css')}}" />
     <link rel="stylesheet" href="{{asset('css/matrix-media.css')}}" />
     <link rel="stylesheet" href="{{asset('css/bootstrap-wysihtml5.css')}}" />
@@ -18,6 +19,9 @@
     <link href="{{asset('font-awesome/css/font-awesome.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href="{{asset('css/jquery.gritter.css')}}" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{asset('css/fullcalendar.css')}}" />
+
+
 
 
     @yield('chart')
@@ -25,20 +29,24 @@
 <body>
 
 @include('backEnd.layouts.header')
-@include('backEnd.layouts.nav')
+<Section class="left-sidebar">
+    @include('backEnd.layouts.nav')
+</Section>
+
 @yield('chart')
 <!--main-container-part-->
-<div>
-    @yield('content')
-</div>
-
 <div id="content">
-    <div class="card">
-        @yield('chart-display')
-        </div>
+    @yield('content')
+    {{-- @yield('chart-display') --}}
+    <div class="row">
+
+    </div>
+
 </div>
 
 @include('backEnd.layouts.footer')
 @yield('jsblock')
+
+
 </body>
 </html>

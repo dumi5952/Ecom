@@ -12,39 +12,38 @@
                     <div class="carousel-inner">
                         <div class="item active">
                             <div class="col-sm-6">
-                                <h1><span>E</span>-SHOPPER</h1>
-                                <h2>Online Shopping</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                <h1><span>FOOD</span>2GO</h1>
+                                <h2>Online Food Delivery</h2>
+                                <p>Eat Quality Food Without any fear...
+                                </p>
                                 <button type="button" class="btn btn-default get">Get it now</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="{{asset('frontEnd/images/home/girl1.jpg')}}" class="girl img-responsive" alt="" />
-                                <img src="{{asset('frontEnd/images/home/pricing.png')}}"  class="pricing" alt="" />
+                                <img src="{{asset('frontEnd\images\ftg\b1.png')}}" class="girl img-responsive" alt="" />
                             </div>
                         </div>
                         <div class="item">
                             <div class="col-sm-6">
-                                <h1><span>E</span>-SHOPPER</h1>
-                                <h2>Shop Now!</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                <h1><span>FOOD</span>2GO</h1>
+                                <h2>Qality Foods</h2>
+                                <p>Stay Home.... We will serve your order to your door step</p>
                                 <button type="button" class="btn btn-default get">Get it now</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="{{asset('frontEnd/images/home/girl2.jpg')}}" class="girl img-responsive" alt="" />
-                                <img src="{{asset('frontEnd/images/home/pricing.png')}}"  class="pricing" alt="" />
+                                <img src="{{asset('frontEnd\images\ftg\b2.png')}}" class="girl img-responsive" alt="" />
                             </div>
                         </div>
 
                         <div class="item">
                             <div class="col-sm-6">
-                                <h1><span>E</span>-SHOPPER</h1>
-                                <h2>Shop Everything Everywhere</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                <h1><span>FOOD</span>2GO</h1>
+                                <h2>Low Price</h2>
+                                <p>Low Price... It is very Easy to you & your pocket </p>
                                 <button type="button" class="btn btn-default get">Get it now</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="{{asset('frontEnd/images/home/girl3.jpg')}}" class="girl img-responsive" alt="" />
-                                <img src="{{asset('frontEnd/images/home/pricing.png')}}" class="pricing" alt="" />
+                                <img src="{{asset('frontEnd\images\ftg\b3.png')}}" class="girl img-responsive" alt="" />
+
                             </div>
                         </div>
 

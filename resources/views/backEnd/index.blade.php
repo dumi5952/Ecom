@@ -6,7 +6,119 @@
     <div id="breadcrumb"> <a href="{{url('/admin')}}" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a></div>
     </div>
     <!--End-breadcrumbs-->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-6">
+                  <!-- small box -->
+                  <div class="small-box bg-flat-color-1">
+                    <div class="inner">
+                      <h3>150</h3>
 
+                      <p>New Orders</p>
+                    </div>
+                    <div class="icon">
+                      <i class="ion ion-bag"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+                </div>
+                <!-- ./col -->
+        <div class="col-lg-3 col-6">
+                  <!-- small box -->
+                  <div class="small-box bg-success">
+                    <div class="inner">
+                      <h3>53<sup style="font-size: 20px">%</sup></h3>
+
+                      <p>Bounce Rate</p>
+                    </div>
+                    <div class="icon">
+                      <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                  <!-- small box -->
+                  <div class="small-box bg-warning">
+                    <div class="inner">
+                      <h3>44</h3>
+
+                      <p>User Registrations</p>
+                    </div>
+                    <div class="icon">
+                      <i class="ion ion-person-add"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                  <!-- small box -->
+                  <div class="small-box bg-danger">
+                    <div class="inner">
+                      <h3>65</h3>
+
+                      <p>Unique Visitors</p>
+                    </div>
+                    <div class="icon">
+                      <i class="ion ion-pie-graph"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+                </div>
+                <!-- ./col -->
+              </div>
+              <!-- /.row -->
+        </div>
+    </section>
+    <div class="container-fluid">
+        @if(Session::has('message'))
+            <div class="alert alert-success text-center" role="alert">
+                <strong>Well done!</strong> {{Session::get('message')}}
+            </div>
+        @endif
+        <div class="widget-box">
+            <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+                <h5>List Categories</h5>
+            </div>
+            <div class="widget-content nopadding">
+                <table class="table table-bordered data-table">
+                    <thead>
+                    <tr>
+                        <th>Category Name</th>
+                        <th>Parent Category</th>
+                        <th>Created At</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($errors as $category)
+                            <?php
+                                $parent_cates = DB::table('categories')->select('name')->where('id',$category->parent_id)->get();
+                            ?>
+                            <tr class="gradeC">
+                                <td>{{$category->name}}</td>
+                                <td>
+                                    @foreach($parent_cates as $parent_cate)
+                                        {{$parent_cate->name}}
+                                    @endforeach
+                                </td>
+                                <td style="text-align: center;">{{$category->created_at->diffForHumans()}}</td>
+                                <td style="text-align: center;">{{($category->status==0)?' Disabled':'Enable'}}</td>
+                                <td style="text-align: center;">
+                                    <a href="{{route('category.edit',$category->id)}}" class="btn btn-primary btn-mini">Edit</a>
+                                    <a href="javascript:" rel="{{$category->id}}" rel1="delete-category" class="btn btn-danger btn-mini deleteRecord">Delete</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('data-chart')
 <?php
@@ -79,7 +191,7 @@ $dataPoints = array(
 @section('jsblock')
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="{{asset('js/excanvas.min.js')}}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{{asset('js/jquery.min.js')}}"></script>
     <script src="{{asset('js/jquery.ui.custom.js')}}"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="{{asset('js/jquery.flot.min.js')}}"></script>
@@ -99,6 +211,8 @@ $dataPoints = array(
     <script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('js/matrix.tables.js')}}"></script>
     <script src="{{asset('js/matrix.form_validation.js')}}"></script>
+
+
 
 
     <script type="text/javascript">

@@ -16,13 +16,13 @@ class UsersController extends Controller
         return view('users.login_register');
     }
     public function register(Request $request){
-        $this->validate($request,[
+        $this->validate($request,[  //validation
            'name'=>'required|string|max:255',
             'email'=>'required|string|email|unique:users,email',
             'password'=>'required|min:6|confirmed',
         ]);
         $input_data=$request->all();
-        $input_data['password']=Hash::make($input_data['password']);
+        $input_data['password']=Hash::make($input_data['password']);    //password encrypt
         User::create($input_data);
         return back()->with('message','Registered already!');
     }

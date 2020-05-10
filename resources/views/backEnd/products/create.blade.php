@@ -18,7 +18,7 @@
                     <div class="control-group">
                         <label class="control-label">Select Category</label>
                         <div class="controls">
-                            <select name="categories_id" style="width: 415px;">
+                            <select name="categories_id" class="form-control"class="form-control" style="width: 400px;">
                                 @foreach($categories as $key=>$value)
                                     <option value="{{$key}}">{{$value}}</option>
                                     <?php
@@ -52,22 +52,24 @@
                     <div class="control-group">
                         <label for="p_color" class="control-label">Color</label>
                         <div class="controls{{$errors->has('p_color')?' has-error':''}}">
-                            <input type="text" name="p_color" id="p_color" value="{{old('p_color')}}" required="required" style="width: 400px;">
+                            <input type="text" name="p_color" id="p_color" class="form-control" value="{{old('p_color')}}" required="required" style="width: 400px;">
                             <span class="text-danger">{{$errors->first('p_color')}}</span>
                         </div>
                     </div>
                     <div class="control-group">
-                        <label for="description" class="control-label">Description</label>
+                        <label for="description" class="control-label ">Description</label>
                         <div class="controls{{$errors->has('description')?' has-error':''}}">
-                            <textarea class="textarea_editor span12" name="description" id="description" rows="6" placeholder="Product Description" style="width: 580px;">{{old('description')}}</textarea>
+                            <div class="clearfix">
+                                <textarea class="textarea_editor span12" name="description" id="description" rows="6" placeholder="Product Description" style="width: 580px;">{{old('description')}}</textarea>
+                            </div>
                             <span class="text-danger">{{$errors->first('description')}}</span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="price" class="control-label">Price</label>
-                        <div class="controls{{$errors->has('price')?' has-error':''}}">
-                            <div class="input-prepend"> <span class="add-on">$</span>
-                                <input type="number" name="price" id="price" class="" value="{{old('price')}}" title="" required="required">
+                        <div class="controls clearfix{{$errors->has('price')?' has-error':''}}">
+                            <div class="input-prepend"> <span class="add-on">Rs.</span>
+                                <input type="number" name="price" id="price" class="form-control" value="{{old('price')}}" title="" required="required" style="width: 150px;">
                                 <span class="text-danger">{{$errors->first('price')}}</span>
                             </div>
                         </div>

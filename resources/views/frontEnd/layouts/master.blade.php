@@ -51,6 +51,7 @@
 
 
         {{-- @include('frontEnd.layouts.banner') --}}
+        @include('frontEnd.layouts.slider')
 
         </div>
 

@@ -34,7 +34,7 @@
                     <div class="control-group">
                         <label for="amount_type" class="control-label">Amount Type</label>
                         <div class="controls{{$errors->has('amount_type')?' has-error':''}}">
-                            <select name="amount_type" id="amount_type" class="form-control" style="width: 415px;">
+                            <select name="amount_type" id="amount_type" class="form-control" style="width: 400px;">
                                 <option value="Percentage">Percentage</option>
                             </select>
                             <span class="text-danger">{{$errors->first('amount_type')}}</span>
@@ -46,7 +46,7 @@
                         <div class="controls{{$errors->has('expiry_date')?' has-error':''}}">
                             <div class="input-prepend">
                                 <div  data-date="12-02-2012" class="input-append date datepicker">
-                                    <input type="text" name="expiry_date" id="expiry_date" value="{{old('expiry_date')}}"  data-date-format="yyyy-mm-dd" class="span11" style="width: 375px;" placeholder="yyyy-mm-dd">
+                                    <input type="text" name="expiry_date" class="form-control" id="expiry_date" value="{{old('expiry_date')}}"  data-date-format="yyyy-mm-dd" class="span11" style="width: 400px;" placeholder="yyyy-mm-dd">
                                     <span class="add-on"><i class="icon-th"></i></span>
                                 </div>
                             </div>
@@ -55,7 +55,7 @@
                     </div>
 
                     <div class="control-group{{$errors->has('status')?' has-error':''}}">
-                        <label class="control-label">Enable :</label>
+                        <label class="control-label">Enable Coupon :</label>
                         <div class="controls">
                             <input type="checkbox" name="status" id="status" value="1">
                             <span class="text-danger">{{$errors->first('status')}}</span>

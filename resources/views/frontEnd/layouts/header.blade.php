@@ -30,7 +30,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4">
-                        <div class="logo pull-left">
+                        <div class="logo pull-left"  style="background-color:black">
                             <a href="{{url('/')}}"><img src="{{asset('frontEnd/images/ftg/f2g.png')}}"/></a>
                         </div>
                     </div>
