@@ -57,6 +57,7 @@ Route::group(['middleware'=>'FrontLogin_middleware'],function (){
 Auth::routes();(['register'=>false]);
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix'=>'admin','middleware'=>['auth','admin']],function (){
+    
     Route::get('/', 'AdminController@index')->name('admin_home');
     /// Setting Area
     Route::get('/settings', 'AdminController@settings');

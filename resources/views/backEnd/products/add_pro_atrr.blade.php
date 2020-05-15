@@ -75,7 +75,7 @@
                                         <input type="text" name="price[]" id="price" class="form-control" value="{{$attribute->price}}" required="required" style="width: 75px;">
                                     </td>
                                     <td class="taskOptions">
-                                        <input type="text" name="stock[]" id="stock" class="form-control" value="{{$attribute->stock}}" required="required" style="width: 75px;">
+                                        <input type="text" name="stock[]" id="stock" class="form-control" value="{{$attribute->stock}}" required="not-required" style="width: 75px;">
                                     </td>
                                     <td style="text-align: center; ">
                                         <button type="submit" class="btn btn-success btn-mini">Edit</button>

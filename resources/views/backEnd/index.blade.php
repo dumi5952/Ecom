@@ -13,9 +13,14 @@
                   <!-- small box -->
                   <div class="small-box bg-flat-color-1">
                     <div class="inner">
-                      <h3>150</h3>
+                        <?php
 
-                      <p>New Orders</p>
+                        $orderCount = DB::table('orders')->where('id')->count()
+                        ?>
+                        <h3>{{$orderCount}}</h3>
+
+
+                      <p>Total Orders</p>
                     </div>
                     <div class="icon">
                       <i class="ion ion-bag"></i>
@@ -28,9 +33,13 @@
                   <!-- small box -->
                   <div class="small-box bg-success">
                     <div class="inner">
-                      <h3>53<sup style="font-size: 20px">%</sup></h3>
+                        <?php
+                            $val = "success";
+                        $orderCount = DB::table('orders')->where('order_status',$val)->get()->count()
+                        ?>
+                      <h3>{{$orderCount}}</h3>
 
-                      <p>Bounce Rate</p>
+                      <p>completed Orders</p>
                     </div>
                     <div class="icon">
                       <i class="ion ion-stats-bars"></i>
@@ -43,9 +52,13 @@
                   <!-- small box -->
                   <div class="small-box bg-warning">
                     <div class="inner">
-                      <h3>44</h3>
+                      <?php
+                            $val = "Processing";
+                        $orderCount = DB::table('orders')->where('order_status',$val)->get()->count()
+                        ?>
+                      <h3>{{$orderCount}}</h3>
 
-                      <p>User Registrations</p>
+                      <p>New Orders</p>
                     </div>
                     <div class="icon">
                       <i class="ion ion-person-add"></i>
@@ -58,9 +71,16 @@
                   <!-- small box -->
                   <div class="small-box bg-danger">
                     <div class="inner">
-                      <h3>65</h3>
 
-                      <p>Unique Visitors</p>
+                        <?php
+                         use Carbon\Carbon;
+                         $date=Carbon::now()->format('Y-m-d');
+                            $orderCount = DB::table('orders')->where('created_at',$date)->get()->count()
+
+                        ?>
+                      <h3>{{$orderCount}}</h3>
+
+                      <p>Today Orders</p>
                     </div>
                     <div class="icon">
                       <i class="ion ion-pie-graph"></i>
@@ -74,47 +94,81 @@
         </div>
     </section>
     <div class="container-fluid">
-        @if(Session::has('message'))
-            <div class="alert alert-success text-center" role="alert">
-                <strong>Well done!</strong> {{Session::get('message')}}
-            </div>
-        @endif
         <div class="widget-box">
             <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-                <h5>List Categories</h5>
+                <h5>List Orders</h5>
             </div>
             <div class="widget-content nopadding">
                 <table class="table table-bordered data-table">
                     <thead>
                     <tr>
-                        <th>Category Name</th>
-                        <th>Parent Category</th>
-                        <th>Created At</th>
+                        <th>Order no</th>
+                        <th>Customer Name</th>
+                        <th>Adress (Shipping)</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Pin code</th>
+                        <th>District</th>
+                        <th>Telephone No</th>
+                        <th>Payment ammount</th>
+                        {{-- <th>Items name</th> --}}
+                        <th>Payment type</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                        @foreach($errors as $category)
-                            <?php
-                                $parent_cates = DB::table('categories')->select('name')->where('id',$category->parent_id)->get();
-                            ?>
+                        @foreach($orders as $ord )
+
                             <tr class="gradeC">
-                                <td>{{$category->name}}</td>
-                                <td>
-                                    @foreach($parent_cates as $parent_cate)
-                                        {{$parent_cate->name}}
-                                    @endforeach
-                                </td>
-                                <td style="text-align: center;">{{$category->created_at->diffForHumans()}}</td>
-                                <td style="text-align: center;">{{($category->status==0)?' Disabled':'Enable'}}</td>
+                                <td>{{$ord ->id}}</td>
+                                <td>{{$ord ->name}}</td>
+                                <td style="text-align: center;">{{$ord->address}}</td>
+                                <td style="text-align: center;">{{$ord->city}}</td>
+                                <td style="text-align: center;">{{$ord->state}}</td>
+                                <td style="text-align: center;">{{$ord->pincode}}</td>
+                                <td style="text-align: center;">{{$ord->country}}</td>
+                                <td style="text-align: center;">{{$ord->mobile}}</td>
+                                <td style="text-align: center;">{{$ord->grand_total}}</td>
+                                <td style="text-align: center;">{{$ord->payment_method}}</td>
+                                <td style="text-align: center;">{{$ord->order_status}}</td>
                                 <td style="text-align: center;">
-                                    <a href="{{route('category.edit',$category->id)}}" class="btn btn-primary btn-mini">Edit</a>
-                                    <a href="javascript:" rel="{{$category->id}}" rel1="delete-category" class="btn btn-danger btn-mini deleteRecord">Delete</a>
+                                    <a href="" class="btn btn-primary btn-mini">Update Order status</a>
+
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
+                    {{-- <tbody>
+                        <tr class="gradeC">
+                            <td>1</td>
+                            <td>Gayan Perera</td>
+                            <td>Negombo RD, Kurunegala</td>
+                            <td>0776969365</td>
+                            <td>Rs.150</td>
+                            <td> burger large, Milk Shake</td>
+                            <td>Paypal</td>
+                            <td>pending</td>
+                            <td style="text-align: center;">
+                                <a href="#" class="btn btn-primary btn-mini">Edit</a>
+                                <a href="javascript:" rel="{{$errors->id}}" rel1="delete-category" class="btn btn-danger btn-mini deleteRecord">Delete</a>
+                            </td>
+                        </tr>
+                        <tr class="gradeC">
+                            <td>2</td>
+                            <td>Manawadu Malka</td>
+                            <td>peradeniya rd, Kandy</td>
+                            <td>0776562225</td>
+                            <td>Rs.1000</td>
+                            <td> burger large, chicken bucket</td>
+                            <td>Cod</td>
+                            <td>pending</td>
+                            <td style="text-align: center;">
+                                <a href="#" class="btn btn-primary btn-mini">Edit</a>
+                                <a href="javascript:" rel="{{$errors->id}}" rel1="delete-category" class="btn btn-danger btn-mini deleteRecord">Delete</a>
+                            </td>
+                        </tr>
+                    </tbody> --}}
                 </table>
             </div>
         </div>

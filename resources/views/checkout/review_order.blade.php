@@ -90,13 +90,13 @@
                                         <p>{{$cart_data->product_code}} | {{$cart_data->size}}</p>
                                     </td>
                                     <td class="cart_price">
-                                        <p>${{$cart_data->price}}</p>
+                                        <p>Rs. {{$cart_data->price}}</p>
                                     </td>
                                     <td class="cart_quantity">
                                         <p>{{$cart_data->quantity}}</p>
                                     </td>
                                     <td class="cart_total">
-                                        <p class="cart_total_price">$ {{$cart_data->price*$cart_data->quantity}}</p>
+                                        <p class="cart_total_price">Rs. {{$cart_data->price*$cart_data->quantity}}</p>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -106,21 +106,21 @@
                                         <table class="table table-condensed total-result">
                                             <tr>
                                                 <td>Cart Sub Total</td>
-                                                <td>$ {{$total_price}}</td>
+                                                <td>Rs. {{$total_price}}</td>
                                             </tr>
                                             @if(Session::has('discount_amount_price'))
                                                 <tr class="shipping-cost">
                                                     <td>Coupon Discount</td>
-                                                    <td>$ {{Session::get('discount_amount_price')}}</td>
+                                                    <td>Rs. {{Session::get('discount_amount_price')}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Total</td>
-                                                    <td><span>$ {{$total_price-Session::get('discount_amount_price')}}</span></td>
+                                                    <td><span>Rs. {{$total_price-Session::get('discount_amount_price')}}</span></td>
                                                 </tr>
                                             @else
                                                 <tr>
                                                     <td>Total</td>
-                                                    <td><span>$ {{$total_price}}</span></td>
+                                                    <td><span>Rs. {{$total_price}}</span></td>
                                                 </tr>
                                             @endif
                                         </table>

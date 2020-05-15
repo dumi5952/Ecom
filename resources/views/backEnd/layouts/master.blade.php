@@ -21,9 +21,6 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{{asset('css/fullcalendar.css')}}" />
 
-
-
-
     @yield('chart')
 </head>
 <body>
@@ -38,9 +35,7 @@
 <div id="content">
     @yield('content')
     {{-- @yield('chart-display') --}}
-    <div class="row">
 
-    </div>
 
 </div>
 

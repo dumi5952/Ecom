@@ -24,9 +24,7 @@
                                 <label class="control-label">Category Lavel :</label>
                                 <div class="controls" style="width: 245px;">
                                     <select name="parent_id" id="parent_id">
-                                        {{--@foreach($cate_levels as $key=>$value)
-                                            <option value="{{$key}}" {{($edit_category->parent_id==$key)?' selected':''}}>{{$value}}</option>
-                                        @endforeach--}}
+                                        
 
                                         @foreach($cate_levels as $key=>$value)
                                             <option value="{{$key}}"{{($edit_category->parent_id==$key)?' selected':''}}>{{$value}}</option>

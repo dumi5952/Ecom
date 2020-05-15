@@ -54,7 +54,7 @@
                         </select>
                         </span><br>
                         <span>
-                            <span id="dynamic_price">US ${{$detail_product->price}}</span>
+                            <span id="dynamic_price">Rs.{{$detail_product->price}}</span>
                             <label>Quantity:</label>
                             <input type="text" name="quantity" value="{{$totalStock}}" id="inputStock"/>
                             @if($totalStock>0)

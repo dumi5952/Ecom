@@ -38,8 +38,8 @@ class ProductAtrrController extends Controller
         $this->validate($request,[
             'sku'=>'required',
             'size'=>'required',
-            'price'=>'required|numeric|between:0,99.99',
-            'stock'=>'required|numeric'
+            'price'=>'required|numeric|between:0,99999',
+
         ]);
         ProductAtrr_model::create($request->all());
         return back()->with('message','Add Attribute Successed');

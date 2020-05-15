@@ -39,4 +39,6 @@ class OrdersController extends Controller
         $who_buying=Orders_model::where('users_id',Auth::id())->first();
         return view('payment.paypal',compact('who_buying'));
     }
+
+    
 }

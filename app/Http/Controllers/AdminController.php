@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Orders_model;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,8 +11,9 @@ use Illuminate\Support\Facades\Hash;
 class AdminController extends Controller
 {
     public function index(){
-        $menu_active=1;
-        return view('backEnd.index',compact('menu_active'));
+        $menu_active=0;
+        $orders= Orders_model::all();
+        return view('backEnd.index',compact('menu_active'))->with('orders',$orders);
     }
     public function settings(){
         $menu_active=0;
